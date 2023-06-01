@@ -8,5 +8,5 @@
 
 
 <div>
-    ![This is the index page of the aplication](public/index_page.png)
+![This is the index page of the aplication](public/index_page.png)
 </div>
