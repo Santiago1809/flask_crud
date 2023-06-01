@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, request
+from models.contact  import Contact
+from utils.db import db
 
 contacts = Blueprint('contacts', __name__)
 
@@ -8,9 +10,19 @@ def home():
     return render_template("index.html")
 
 
-@contacts.route('/new')
+@contacts.route('/new', methods=['POST'])
 def new():
-    return render_template("new.html")
+    fullname = request.form['fullname']
+    email = request.form['email']
+    phone = request.form['phone']
+
+    new_contact = Contact(fullname,email, phone)
+    try:
+        db.session.add(new_contact)
+        db.session.commit()
+        return "contacto guardado"
+    except:
+        return "error al guardar"
 
 
 @contacts.route("/about")
