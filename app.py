@@ -1,9 +1,6 @@
 from flask import Flask
-
+from routes.contacts import contacts
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def home():
-    return "Hola mundo"
+app.register_blueprint(contacts)
