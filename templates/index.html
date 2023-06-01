@@ -1,7 +1,16 @@
+{% with messages = get_flashed_messages() %}
+
+  {% if messages %}
+    {%for message in messages%}
+      {{message}}
+    {%endfor%}
+  {% endif %}
+
+{% endwith %}
 <form method="post" action="/new">
+  <input type="text" name="fullname" placeholder="fullname" />
   <input type="number" name="phone" placeholder="phone" />
   <input type="email" name="email" placeholder="email" />
-  <input type="text" name="fullname" placeholder="fullname" />
   <button type="submit">Save</button>
 </form>
 

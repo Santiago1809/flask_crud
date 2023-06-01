@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models.contact import Contact
 from utils.db import db
 
@@ -21,32 +21,35 @@ def new():
     try:
         db.session.add(new_contact)
         db.session.commit()
+        flash('Contact created successfully!')
         return redirect(url_for('contacts.home'))
     except:
         return "error al guardar"
-
-
-@contacts.route("/about")
-def about():
-    return render_template("about.html")
 
 
 @contacts.route("/update/<id>", methods=["POST", "GET"])
 def update(id):
     contact = Contact.query.get(id)
     if request.method == "POST":
-        contact.fullname = request.form["fullname"]
-        contact.email = request.form["email"]
-        contact.phone = request.form["phone"]
-
-        db.session.commit()
-        return redirect(url_for('contacts.home'))
+        try:
+            contact.fullname = request.form["fullname"]
+            contact.email = request.form["email"]
+            contact.phone = request.form["phone"]
+            db.session.commit()
+            flash("Contact updated")
+            return redirect(url_for('contacts.home'))
+        except:
+            return render_template("ErrorSaving.html")
     return render_template("update.html", contact=contact)
 
 
 @contacts.route("/delete/<id>")
 def delete(id):
-    contact = Contact.query.get(id)
-    db.session.delete(contact)
-    db.session.commit()
-    return redirect(url_for('contacts.home'))
+    try:
+        contact = Contact.query.get(id)
+        db.session.delete(contact)
+        db.session.commit()
+        flash("Contact deleted")
+        return redirect(url_for('contacts.home'))
+    except:
+        return render_template("ErrorDeleting.html")
