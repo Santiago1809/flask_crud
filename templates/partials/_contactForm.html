@@ -1,0 +1,17 @@
+<form method="post" action="/new" class="card bg-black text-light">
+  <div class="card-body p-4">
+    <div class="mb-3">
+      <label for="fullname">Write your fullname:</label>
+      <input type="text" name="fullname" style="::placeholder{color: #fefefe !important;}" placeholder="fullname" class="form-control rounded-0 bg-dark border-0 text-white" aria-label="fullname"/>
+    </div>
+    <div class="mb-3">
+      <label for="phone">Write your phone:</label>
+      <input type="number" name="phone" placeholder="phone" class="form-control rounded-0 bg-dark border-0 text-white" required/>
+    </div>
+    <div class="mb-3">
+      <label for="email">Write your email:</label>
+      <input type="email" name="email" placeholder="email" class="form-control rounded-0 bg-dark border-0 text-white" required/>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary" type="submit">Save</button>
+</form>

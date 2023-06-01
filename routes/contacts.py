@@ -11,6 +11,10 @@ def home():
     return render_template("index.html", contacts=contacts)
 
 
+@contacts.route('/about')
+def about():
+    return render_template("about.html")
+
 @contacts.route('/new', methods=['POST'])
 def new():
     fullname = request.form['fullname']
@@ -19,12 +23,16 @@ def new():
 
     new_contact = Contact(fullname, email, phone)
     try:
-        db.session.add(new_contact)
-        db.session.commit()
-        flash('Contact created successfully!')
-        return redirect(url_for('contacts.home'))
+        if fullname!="" or email!="" and phone!="":
+            db.session.add(new_contact)
+            db.session.commit()
+            flash('Contact created successfully!')
+            return redirect(url_for('contacts.home'))
+        else:
+            flash('Los campos no pueden estar vacíos')
+            return redirect(url_for('contacts.home'))
     except:
-        return "error al guardar"
+        return redirect(url_for('contacts.home'))
 
 
 @contacts.route("/update/<id>", methods=["POST", "GET"])
