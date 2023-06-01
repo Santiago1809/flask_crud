@@ -2,4 +2,4 @@
     <span>Flask Crud</span>
 </h1>
 
-<div>This is a project developed to practice Flask skills.</div>
+<div align="center">This is a project developed to practice Flask skills.</div>
