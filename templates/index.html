@@ -1,6 +1,29 @@
 <form method="post" action="/new">
-  <input type="text" name="phone" placeholder="phone">
-  <input type="email" name="email" placeholder="email">
-  <input type="text" name="fullname" placeholder="fullname">
+  <input type="text" name="phone" placeholder="phone" />
+  <input type="email" name="email" placeholder="email" />
+  <input type="text" name="fullname" placeholder="fullname" />
   <button type="submit">Save</button>
 </form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contacts %}
+    <tr>
+      <td><strong>{{contact.fullname}}</strong></td>
+      <td>{{contact.phone}}</td>
+      <td>{{contact.email}}</td>
+      <td><a href="{{ url_for('contacts.update') }}">Update</a></td>
+      <td><a href="{{ url_for('contacts.delete') }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
