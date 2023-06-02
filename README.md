@@ -9,3 +9,11 @@
 ---
 
 ![This is the index page of the aplication](public/index_page.png)
+
+---
+
+<div>
+    <h1>Contact add</h1>
+</div>
+
+![This is the index page after add a contact](public/contact_add.png)
