@@ -12,7 +12,7 @@
 
 ---
 
-<div>
+<div align="center">
     <h1>Contact add</h1>
 </div>
 
