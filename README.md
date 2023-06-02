@@ -24,7 +24,7 @@
 
 ---
 You must have installed python 3.10 or latest
-1. On App.py, in the line 7, config the URI to connect to you database
+1. On App.py, in the line 7, config the URI to connect to your database
 2. Run the bellow commands
 * npm i
 * pip install flask
