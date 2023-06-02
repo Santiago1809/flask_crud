@@ -26,8 +26,8 @@
 You must have installed python 3.10 or latest
 
 Run the bellow commands
-    * npm i
-    * pip install flask
-    * pip install SQLAlchemy
-    * python index.py
+* npm i
+* pip install flask
+* pip install SQLAlchemy
+* python index.py
 
