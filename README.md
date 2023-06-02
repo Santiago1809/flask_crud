@@ -8,4 +8,26 @@
 
 ---
 
-![This is the index page of the aplication](public/index_page.png)
+![This is an index page image](public/index_page.png)
+
+---
+
+<div align="center">
+    <h1>Contact add</h1>
+</div>
+
+![This is how it looks when ud add a contact](public/contac_add.png)
+
+---
+
+# How to run
+
+---
+You must have installed python 3.10 or latest
+
+Run the bellow commands
+* npm i
+* pip install flask
+* pip install SQLAlchemy
+* python index.py
+
