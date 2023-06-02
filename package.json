@@ -2,7 +2,7 @@
   "name": "flask",
   "version": "1.0.0",
   "description": "This is an example of Flask crud application",
-  "main": "index.js",
+  "main": "index.py",
   "author": "Santiago1809",
   "license": "MIT-0",
   "devDependencies": {
