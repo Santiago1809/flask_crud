@@ -1,46 +1,50 @@
 {% extends 'layout.html' %} 
 {%block content%} 
 
-<div class="row">
-  <div class="col-md-5">
+<div class="flex flex-row">
+  <div class="w-2/6">
     {%include('partials/_contactForm.html')%}
     {%include('partials/_messages.html')%}
   </div>
-  <div class="col-md-7">
-    <table class="table table-dark table-striped my-2">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Update</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for contact in contacts %}
-        <tr>
-          <td><strong>{{contact.fullname}}</strong></td>
-          <td>{{contact.phone}}</td>
-          <td>{{contact.email}}</td>
-          <td>
-            <a
-              class="btn btn-outline-success"
-              href="{{ url_for('contacts.update',id=contact.id) }}"
-              >Update</a
-            >
-          </td>
-          <td>
-            <a
-              class="btn btn-outline-danger"
-              href="{{ url_for('contacts.delete', id=contact.id) }}"
-              >Delete</a
-            >
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:mx-6 lg:mx-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b text-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
+            <tr>
+              <th scope="col" class="px-6 py-4">Name</th>
+              <th scope="col" class="px-6 py-4">Phone</th>
+              <th scope="col" class="px-6 py-4">Email</th>
+              <th scope="col" class="px-6 py-4">Update</th>
+              <th scope="col" class="px-6 py-4">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for contact in contacts %}
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700 text-white font-semibold">
+              <td class="whitespace-nowrap px-6 py-4">{{contact.fullname}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{contact.phone}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{contact.email}}</td>
+              <td class="whitespace-nowrap px-6 py-4">
+                <a
+                  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  href="{{ url_for('contacts.update',id=contact.id) }}"
+                  >Update</a
+                >
+              </td>
+              <td>
+                <a
+                  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  href="{{ url_for('contacts.delete', id=contact.id) }}"
+                  >Delete</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 {%endblock%}
